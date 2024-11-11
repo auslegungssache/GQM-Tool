@@ -1,13 +1,13 @@
 import z from "zod";
-import {GoalId, ProjectId} from "@/schema/ids";
+import { GoalId, ProjectId } from "@/schema/ids";
 
 export const GoalSchema = z.object({
-    id: GoalId,
-    created_at: z.string(),
+  id: GoalId,
+  created_at: z.string(),
 
-    project_id: ProjectId,
+  project_id: ProjectId,
 
-    title: z.string(),
-})
+  title: z.string(),
+});
 
-export type Goal = z.infer<typeof GoalSchema>
+export type Goal = z.infer<typeof GoalSchema>;
