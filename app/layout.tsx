@@ -1,9 +1,9 @@
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
+import HeaderAuth from "@/components/header-auth";
 import "./globals.css";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import Sidebar from "@/app/@sidebar/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -36,6 +36,13 @@ export default function RootLayout({
 
             <main className="min-h-screen flex flex-col flex-1">
               {/* <SidebarTrigger /> */}
+              <nav className="inset-x-0 w-full h-20 top-0 bg-neutral-800 flex justify-between items-center px-8 text-xl">
+                <div></div>
+
+                <div>
+                  <HeaderAuth />
+                </div>
+              </nav>
 
               <div className="flex flex-col flex-1">
                 <div className="flex-1">{children}</div>

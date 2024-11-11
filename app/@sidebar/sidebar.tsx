@@ -25,7 +25,14 @@ export default async function SidebarView({ children }: SidebarViewProps) {
   return (
     <div>
       <Sidebar>
-        <SidebarHeader />
+        <SidebarHeader>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <div className="text-2xl font-bold ml-2 mt-2">GQM-Tool</div>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarHeader>
+
         <SidebarContent>{children}</SidebarContent>
         <SidebarFooter />
       </Sidebar>

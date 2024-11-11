@@ -4,6 +4,9 @@ import Link from "next/link";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { createClient } from "@/utils/supabase/server";
+import { Separator } from "@/components/ui/separator";
+import getRoleServer from "@/actions/get/getRole";
+import HeaderRole from "@/components/header-role";
 
 export default async function AuthButton() {
   const supabase = await createClient();
@@ -48,11 +51,19 @@ export default async function AuthButton() {
       </>
     );
   }
+
   return user ? (
     <div className="flex items-center gap-4">
-      Hey, {user.email}!
+      <HeaderRole userId={user.id} />
+      <Separator orientation="vertical" className="border-red-500" />
+
+      <div>Hey, {user.email}!</div>
       <form action={signOutAction}>
-        <Button type="submit" variant={"outline"}>
+        <Button
+          type="submit"
+          variant={"outline"}
+          className="border-red-500 border-2"
+        >
           Sign out
         </Button>
       </form>

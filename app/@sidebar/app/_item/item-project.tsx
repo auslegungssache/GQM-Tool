@@ -16,18 +16,16 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
 import Link from "next/link";
+import getProjectServer from "@/actions/get/getProject";
 
 interface ProjectProps {
   projectId: string;
 }
 
 export default async function ItemProject(props: ProjectProps) {
-  const supabase = await createClientS();
-  const { data: project, error } = await supabase
-    .from("projects")
-    .select()
-    .eq("id", props.projectId)
-    .returns<Project | null>();
+  const { data: project } = await getProjectServer({
+    projectId: props.projectId,
+  });
 
   if (!project) {
     throw new Error("Project not found");
