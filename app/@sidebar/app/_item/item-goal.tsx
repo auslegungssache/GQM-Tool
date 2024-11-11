@@ -15,19 +15,14 @@ import {
 import DeleteGoal from "@/app/@sidebar/app/_delete/delete-goal";
 import { MoreHorizontal } from "lucide-react";
 import Link from "next/link";
+import getGoalServer from "@/actions/get/getGoal";
 
 interface ItemGoalProps {
   goalId: string;
 }
 
 export default async function ItemGoal(props: ItemGoalProps) {
-  const supabase = await createClientS();
-  const { data: goal, error } = await supabase
-    .from("goals")
-    .select()
-    .eq("id", props.goalId)
-    .returns<Goal | null>();
-
+  const { data: goal } = await getGoalServer({ goalId: props.goalId });
   if (!goal) {
     throw new Error("Goal not found");
   }

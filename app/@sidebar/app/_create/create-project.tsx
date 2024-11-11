@@ -11,7 +11,7 @@ export default function CreateProject() {
   const supabase = createClientC();
   async function createProject() {
     await supabase.from("projects").upsert({
-      title: "test",
+      title: "... Project",
     });
 
     router.refresh();

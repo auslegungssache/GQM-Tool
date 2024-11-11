@@ -15,7 +15,7 @@ export default function CreateQuestion(props: CreateQuestionProps) {
   const supabase = createClientC();
   async function onClick() {
     await supabase.from("questions").upsert({
-      title: "test",
+      title: "... Question",
       goal_id: props.goalId,
     });
 

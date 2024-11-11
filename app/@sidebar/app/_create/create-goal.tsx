@@ -15,7 +15,7 @@ export default function CreateGoal(props: CreateGoalProps) {
   const supabase = createClientC();
   async function onClick() {
     await supabase.from("goals").upsert({
-      title: "test",
+      title: "... Goal",
       project_id: props.projectId,
     });
 
