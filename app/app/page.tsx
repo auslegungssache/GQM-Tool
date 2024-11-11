@@ -3,6 +3,13 @@ import React from "react";
 import CreateProject from "@/app/app/_create/create-project";
 import { Project } from "@/schema";
 import ProjectItem from "./_item/item-project";
+import { Sidebar } from "lucide-react";
+import {
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarHeader,
+} from "@/components/ui/sidebar";
 
 export default async function Notes() {
   const supabase = await createClientS();
