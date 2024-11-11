@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import DeleteGoal from "@/app/@sidebar/app/_delete/delete-goal";
 import { MoreHorizontal } from "lucide-react";
+import Link from "next/link";
 
 interface ItemGoalProps {
   goalId: string;
@@ -33,7 +34,11 @@ export default async function ItemGoal(props: ItemGoalProps) {
 
   return (
     <SidebarMenuItem>
-      <SidebarMenuButton>{goal.title ?? "NO TITLE"}</SidebarMenuButton>
+      <SidebarMenuButton>
+        <Link href={`/app/goal/${props.goalId}`}>
+          {goal.title ?? "NO TITLE"}
+        </Link>
+      </SidebarMenuButton>
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

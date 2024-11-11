@@ -1,6 +1,5 @@
 import { Project } from "@/schema";
 import { createClient as createClientS } from "@/utils/supabase/server";
-import CreateGoal from "@/app/app/_create/create-goal";
 import DeleteProject from "@/app/@sidebar/app/_delete/delete-project";
 import {
   SidebarMenuAction,
@@ -16,6 +15,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
+import Link from "next/link";
 
 interface ProjectProps {
   projectId: string;
@@ -35,7 +35,11 @@ export default async function ItemProject(props: ProjectProps) {
 
   return (
     <SidebarMenuItem>
-      <SidebarMenuButton>{project.title ?? "NO TITLE"}</SidebarMenuButton>
+      <SidebarMenuButton>
+        <Link href={`/app/project/${props.projectId}`}>
+          {project.title ?? "NO TITLE"}
+        </Link>
+      </SidebarMenuButton>
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

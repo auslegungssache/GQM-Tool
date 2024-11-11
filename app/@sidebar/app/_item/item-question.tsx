@@ -15,6 +15,7 @@ import {
 import { MoreHorizontal } from "lucide-react";
 import DeleteGoal from "@/app/@sidebar/app/_delete/delete-goal";
 import DeleteQuestion from "@/app/@sidebar/app/_delete/delete-question";
+import Link from "next/link";
 
 interface ItemQuestionProps {
   questionId: string;
@@ -34,7 +35,11 @@ export default async function ItemQuestion(props: ItemQuestionProps) {
 
   return (
     <SidebarMenuItem>
-      <SidebarMenuButton>{question.title ?? "NO TITLE"}</SidebarMenuButton>
+      <SidebarMenuButton>
+        <Link href={`/app/question/${props.questionId}`}>
+          {question.title ?? "NO TITLE"}
+        </Link>
+      </SidebarMenuButton>
 
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
