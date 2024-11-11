@@ -1,14 +1,9 @@
-import DeployButton from "@/components/deploy-button";
-import { EnvVarWarning } from "@/components/env-var-warning";
-import HeaderAuth from "@/components/header-auth";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 import { GeistSans } from "geist/font/sans";
 import { ThemeProvider } from "next-themes";
-import Link from "next/link";
 import "./globals.css";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import SidebarPane from "@/app/sidebar-pane";
+import Sidebar from "@/app/@sidebar/sidebar";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -22,8 +17,10 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  sidebar,
 }: {
   children: React.ReactNode;
+  sidebar: React.ReactNode;
 }) {
   return (
     <html lang="en" className={GeistSans.className} suppressHydrationWarning>
@@ -35,7 +32,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SidebarProvider>
-            <SidebarPane />
+            {sidebar}
 
             <main className="min-h-screen flex flex-col flex-1">
               <SidebarTrigger />
