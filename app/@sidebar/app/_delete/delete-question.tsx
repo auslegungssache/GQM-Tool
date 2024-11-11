@@ -14,7 +14,7 @@ export default function DeleteQuestion(props: DeleteQuestionProps) {
   async function onDeleteQuestion() {
     await deleteQuestion({ questionId: props.questionId });
 
-    router.refresh();
+    router.push("/app");
   }
 
   return (

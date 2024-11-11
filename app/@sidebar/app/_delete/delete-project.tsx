@@ -14,7 +14,7 @@ export default function DeleteProject(props: DeleteProjectProps) {
   async function onDeleteProject() {
     await deleteProject({ projectId: props.projectId });
 
-    router.refresh();
+    router.push("/app");
   }
 
   return (

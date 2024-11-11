@@ -14,7 +14,7 @@ export default function DeleteGoal(props: DeleteGoalProps) {
   async function onDeleteGoal() {
     await deleteGoal({ goalId: props.goalId });
 
-    router.refresh();
+    router.push("/app");
   }
 
   return (
