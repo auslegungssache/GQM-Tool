@@ -35,7 +35,7 @@ export default function RootLayout({
             {sidebar}
 
             <main className="min-h-screen flex flex-col flex-1">
-              <SidebarTrigger />
+              {/* <SidebarTrigger /> */}
 
               <div className="flex flex-col flex-1">
                 <div className="flex-1">{children}</div>

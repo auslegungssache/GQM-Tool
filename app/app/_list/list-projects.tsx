@@ -1,14 +1,9 @@
-import { createClient as createClientS } from "@/utils/supabase/server";
-import { Project } from "@/schema";
 import ProjectItem from "@/app/app/_item/item-project";
 import React from "react";
+import getProjectsServer from "@/actions/get/getProjects";
 
 export default async function ListProjects() {
-  const supabase = await createClientS();
-  const { data: projects } = await supabase
-    .from("projects")
-    .select()
-    .returns<Project[]>();
+  const { data: projects } = await getProjectsServer();
 
   return (
     <div>

@@ -11,6 +11,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import React from "react";
+import ListProjects from "@/app/@sidebar/app/_list/list-projects";
 
 export default function Sidebar() {
   return (
@@ -19,19 +20,7 @@ export default function Sidebar() {
         <SidebarGroupLabel>Projects</SidebarGroupLabel>
         <SidebarGroupContent>
           <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton>Project 1</SidebarMenuButton>
-              <SidebarMenuSub>
-                <SidebarMenuSubItem>
-                  <SidebarMenuSubButton>Goal 1</SidebarMenuSubButton>
-                  <SidebarMenuSub>
-                    <SidebarMenuSubItem>
-                      <SidebarMenuSubButton>Question 1</SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
-                  </SidebarMenuSub>
-                </SidebarMenuSubItem>
-              </SidebarMenuSub>
-            </SidebarMenuItem>
+            <ListProjects />
           </SidebarMenu>
         </SidebarGroupContent>
       </SidebarGroup>

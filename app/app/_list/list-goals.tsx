@@ -1,19 +1,15 @@
-import { createClient as createClientS } from "@/utils/supabase/server";
-import { Goal } from "@/schema";
 import React from "react";
 import ItemGoal from "@/app/app/_item/item-goal";
+import getGoalsServer from "@/actions/get/getGoals";
 
 interface ListGoalsProps {
   projectId: string;
 }
 
 export default async function ListGoals(props: ListGoalsProps) {
-  const supabase = await createClientS();
-  const { data: goals, error } = await supabase
-    .from("goals")
-    .select()
-    .eq("project_id", props.projectId)
-    .returns<Goal[]>();
+  const { data: goals, error } = await getGoalsServer({
+    projectId: props.projectId,
+  });
 
   if (error) return <div>{JSON.stringify(error, null, 2)}</div>;
 
