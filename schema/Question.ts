@@ -8,6 +8,9 @@ export const QuestionSchema = z.object({
   goal_id: GoalId,
 
   title: z.string(),
+
+  metric: z.string(),
+  answer: z.string()
 });
 
 export type Question = z.infer<typeof QuestionSchema>;

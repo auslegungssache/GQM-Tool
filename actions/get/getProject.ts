@@ -13,7 +13,5 @@ export default async function getProjectServer({
     .eq("id", projectId)
     .single<Project>();
 
-  console.log(data);
-
   return { data, error };
 }

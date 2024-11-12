@@ -1,19 +1,15 @@
-import { createClient as createClientS } from "@/utils/supabase/server";
 import {
   SidebarMenuAction,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
 } from "@/components/ui/sidebar";
 import React from "react";
-import { Question } from "@/schema";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { MoreHorizontal } from "lucide-react";
-import DeleteGoal from "@/app/@sidebar/app/_delete/delete-goal";
 import DeleteQuestion from "@/app/@sidebar/app/_delete/delete-question";
 import Link from "next/link";
 import getQuestionServer from "@/actions/get/getQuestion";
